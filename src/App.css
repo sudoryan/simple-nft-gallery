@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 550px;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+
+  width: 100%;
+  border-radius: 40px;
+}
