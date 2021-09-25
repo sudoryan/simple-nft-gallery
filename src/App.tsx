@@ -45,7 +45,7 @@ function App() {
         setIndex((prevIndex) =>
           prevIndex === nfts.length - 1 ? 0 : prevIndex + 1
         ),
-      5000
+      4000
     );
 
     return () => {

@@ -1,33 +1,35 @@
 .NFT-container {
   display: flex;
-  flex-direction: column;
-  width: auto;
 
-  background-color: white;
-  padding-top: 20px;
-  height: fit-content;
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 
   border-radius: 12px;
 }
 
 .NFT-image-container {
-  /* max-width: 500px; */
 }
 
 .NFT-image {
   cursor: pointer;
-  object-fit: contain;
-  width: initial;
-  max-width: 100%;
-  height: 100%;
+  /* object-fit: contain; */
+  width: auto;
+  height: 73vh;
+  margin-left: 3em;
 }
 
 .NFT-infoContainer {
-  padding-top: 24px;
+  height: 73vh;
+  width: 32%;
+  margin-right: 6em;
 }
 
 .NFT-name {
   font-family: "Open Sans", sans-serif;
+  white-space: initial;
   font-style: normal;
   cursor: pointer;
   overflow: hidden;
@@ -37,7 +39,7 @@
   font-style: normal;
   position: static;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 45px;
   color: #000000;
 }
 
@@ -48,62 +50,10 @@
 .NFT-description {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
-  font-size: 15px;
+  font-size: 30px;
   color: #6d6e76;
   white-space: initial;
   text-align: left;
   min-height: 43px;
   margin-top: 8px;
-}
-
-.more {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  cursor: pointer;
-  color: black;
-  font-weight: 600;
-  margin-left: 5px;
-}
-
-.divider {
-  background: #e8e8e8;
-  margin: 24px 0;
-  height: 1px;
-}
-
-.created-by {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 16px;
-  color: #6d6e76;
-}
-
-.created-by-image {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-  border-radius: 20px;
-}
-
-.created-by-text {
-  min-width: 79px;
-}
-
-.created-by-username {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  margin-left: 5px;
-  font-weight: bold;
-  color: black;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 50%;
-  cursor: pointer;
-}
-
-.created-by-username:hover {
-  color: #0000ee;
 }
