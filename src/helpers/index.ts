@@ -31,6 +31,10 @@ export const getNfts = async (
     .then(({ assets }: { assets: OpenSeaAsset[] }) => {
       return {
         nfts: assets.reduce((a, c: OpenSeaAsset) => {
+          // if (!c.name?.toLowerCase().includes("lunar")) {
+          //   return a;
+          // }
+          // console.log(c);
           if ((c.name || c.token_id) && c.image_url) {
             const nft: Nft = {
               link: c.permalink,

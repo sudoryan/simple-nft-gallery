@@ -14,7 +14,7 @@ const NftCard = ({ nft }: Props) => {
     if (element) {
       element.addEventListener(
         "error",
-        () => {
+        (e) => {
           setShowVideo(false);
         },
         true
@@ -34,17 +34,6 @@ const NftCard = ({ nft }: Props) => {
   };
 
   const shouldRenderVideo = () => {
-    if (nft.video_url) {
-      if (
-        !nft.video_url.endsWith(".gif") &&
-        !nft.video_url.endsWith(".gltf") &&
-        !nft.video_url.endsWith(".glb") &&
-        !nft.video_url.endsWith(".mp3")
-      ) {
-        return true;
-      }
-    }
-    // For case when image_url incorrectly provides video file
     if (nft.image_url && nft.image_url.endsWith(".mp4")) {
       return true;
     }
