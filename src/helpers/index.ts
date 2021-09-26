@@ -12,6 +12,10 @@ const SHOW_NONE = [
     name: "Pudgy Present",
     address: "0x062e691c2054de82f28008a8ccc6d7a1c8ce060d",
   },
+  {
+    name: "ENS",
+    address: "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
+  },
 ];
 
 export const cleanNftList = (nfts: Array<Nft>): Array<Nft> => {
