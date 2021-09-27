@@ -40,13 +40,13 @@ function App() {
 
   React.useEffect(() => {
     resetTimeout();
-    (timeoutRef as any).current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === nfts.length - 1 ? 0 : prevIndex + 1
-        ),
-      60 * 1000 * 5
-    );
+    // (timeoutRef as any).current = setTimeout(
+    //   () =>
+    //     setIndex((prevIndex) =>
+    //       prevIndex === nfts.length - 1 ? 0 : prevIndex + 1
+    //     ),
+    //   60 * 1000 * 5
+    // );
 
     return () => {
       resetTimeout();

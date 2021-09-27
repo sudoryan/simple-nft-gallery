@@ -50,6 +50,7 @@ export const getAllNfts = async (ownerAddress: string) => {
     allNfts.push(...nfts);
     offset++;
   }
+  console.log(allNfts);
   return cleanNftList(allNfts);
 };
 
@@ -70,7 +71,12 @@ export const getNfts = async (
     .then(({ assets }: { assets: OpenSeaAsset[] }) => {
       return {
         nfts: assets.reduce((a, c: OpenSeaAsset) => {
-          if ((c.name || c.token_id) && c.image_url) {
+          if (
+            (c.name || c.token_id) &&
+            c.image_url &&
+            c.asset_contract.address ===
+              "0xd1e5b0ff1287aa9f9a268759062e4ab08b9dacbe"
+          ) {
             const nft: Nft = {
               link: c.permalink,
               name: c.name || c.token_id,
