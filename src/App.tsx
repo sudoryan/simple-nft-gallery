@@ -24,9 +24,19 @@ const shuffle = (array: any[]) => {
 function App() {
   const [nfts, setNfts] = useState([] as Nft[]);
   const [index, setIndex] = React.useState(0);
+  const [toggle, setToggle] = React.useState(false);
+  const [showToggle, setShowToggle] = React.useState(true);
   const timeoutRef = React.useRef(null);
 
+  const handleToggleClick = () => {
+    setShowToggle(false);
+    setToggle(true);
+  };
+
   useEffect(() => {
+    setTimeout(() => {
+      setShowToggle(false);
+    }, 10000);
     getAllNfts("0xa59c818ddb801f1253edebf0cf08c9e481ea2fe5").then((results) =>
       setNfts(shuffle(results))
     );
@@ -40,31 +50,42 @@ function App() {
 
   React.useEffect(() => {
     resetTimeout();
-    // (timeoutRef as any).current = setTimeout(
-    //   () =>
-    //     setIndex((prevIndex) =>
-    //       prevIndex === nfts.length - 1 ? 0 : prevIndex + 1
-    //     ),
-    //   60 * 1000 * 5
-    // );
+    (timeoutRef as any).current = setTimeout(() => {
+      if (!toggle) {
+        setIndex((prevIndex) =>
+          prevIndex === nfts.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+    }, 60 * 1000 * 5);
 
     return () => {
       resetTimeout();
     };
-  }, [index, nfts]);
+  }, [index, nfts, toggle]);
 
   return (
     <div className="App">
+      {showToggle ? (
+        <button onClick={handleToggleClick}>
+          Show only matt.crypto Toggle
+        </button>
+      ) : null}
       <div className="slideshow">
         <div
           className="slideshowSlider"
           style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
         >
-          {nfts.map((nft, index) => (
+          {toggle && nfts.length ? (
             <div className="slide" key={index}>
-              <NftCard nft={nft} />
+              <NftCard nft={nfts.find((v) => v.name === "matt.crypto")!} />
             </div>
-          ))}
+          ) : (
+            nfts.map((nft, index) => (
+              <div className="slide" key={index}>
+                <NftCard nft={nft} />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>

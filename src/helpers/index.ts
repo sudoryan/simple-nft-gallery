@@ -71,12 +71,7 @@ export const getNfts = async (
     .then(({ assets }: { assets: OpenSeaAsset[] }) => {
       return {
         nfts: assets.reduce((a, c: OpenSeaAsset) => {
-          if (
-            (c.name || c.token_id) &&
-            c.image_url &&
-            c.asset_contract.address ===
-              "0xd1e5b0ff1287aa9f9a268759062e4ab08b9dacbe"
-          ) {
+          if ((c.name || c.token_id) && c.image_url) {
             const nft: Nft = {
               link: c.permalink,
               name: c.name || c.token_id,
